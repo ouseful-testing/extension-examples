@@ -52,16 +52,21 @@ git clone https://github.com/jupyterlab/extension-examples.git jupyterlab-extens
 cd jupyterlab-extension-examples
 
 # create a new environment
-conda env create
+python -m venv myenv
 
 # activate the environment
-conda activate jupyterlab-extension-examples
+source myenv/bin/activate 
 
 # go to the hello world example
 cd hello-world
 
 # Required to deal with Yarn 3 workspace rules
 touch yarn.lock
+
+# ERRORS OTHERWISE
+npm install
+npm install --save-dev jest ts-jest
+pip install --upgrade hatchling
 
 # install the extension in editable mode
 python -m pip install -e .
@@ -74,6 +79,9 @@ jlpm run build
 
 # start JupyterLab
 jupyter lab
+
+# get out of pyenv
+deactivate
 ```
 
 The examples currently target **JupyterLab 4.0 or later**.
